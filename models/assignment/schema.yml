@@ -1,0 +1,112 @@
+# Define sources
+sources:
+  - name: dev  # Name of the source (logical grouping of tables)
+    schema: dev  # Schema where the tables are located in Redshift
+    description: "Raw data tables from the source system."
+    tables:
+      - name: product_catalog
+        description: "Table containing details of products."
+        columns:
+          - name: product_id
+            description: "Unique identifier for each product."
+            tests:
+              - unique
+              - not_null
+          - name: product_name
+            description: "Name of the product."
+          - name: category
+            description: "Category of the product."
+
+      - name: marketing_events
+        description: "Table containing data from various marketing initiatives."
+        columns:
+          - name: event_id
+            description: "Unique identifier for each marketing event."
+            tests:
+              - unique
+              - not_null
+          - name: user_id
+            description: "Identifier for the user associated with the event."
+          - name: event_type
+            description: "Type of the marketing event."
+          - name: event_timestamp
+            description: "Timestamp of the event."
+          - name: channel
+            description: "Channel used for the marketing event."
+          - name: campaign
+            description: "Campaign associated with the event."
+          - name: cost
+            description: "Cost associated with the event."
+
+      - name: sales_transactions
+        description: "Table containing all sales data."
+        columns:
+          - name: transaction_id
+            description: "Unique identifier for each sales transaction."
+            tests:
+              - unique
+              - not_null
+          - name: product_id
+            description: "Identifier for the product associated with the transaction."
+          - name: user_id
+            description: "Identifier for the user associated with the transaction."
+          - name: transaction_timestamp
+            description: "Timestamp of the transaction."
+          - name: revenue
+            description: "Revenue generated from the transaction."
+          - name: cost
+            description: "Cost associated with the transaction."
+
+# Define models (if needed)
+models:
+  - name: stg_product_catalog
+    description: "Staging model for the product catalog table."
+    columns:
+      - name: product_id
+        description: "Unique identifier for each product."
+      - name: product_name
+        description: "Name of the product."
+      - name: category
+        description: "Category of the product."
+
+  - name: stg_marketing_events
+    description: "Staging model for the marketing events table."
+    columns:
+      - name: event_id
+        description: "Unique identifier for each marketing event."
+      - name: user_id
+        description: "Identifier for the user associated with the event."
+      - name: event_type
+        description: "Type of the marketing event."
+      - name: event_timestamp
+        description: "Timestamp of the event."
+      - name: channel
+        description: "Channel used for the marketing event."
+      - name: campaign
+        description: "Campaign associated with the event."
+      - name: cost
+        description: "Cost associated with the event."
+      - name: event_year
+        description: "Year extracted from the event timestamp."
+      - name: event_month
+        description: "Month extracted from the event timestamp."
+
+  - name: stg_sales_transactions
+    description: "Staging model for the sales transactions table."
+    columns:
+      - name: transaction_id
+        description: "Unique identifier for each sales transaction."
+      - name: product_id
+        description: "Identifier for the product associated with the transaction."
+      - name: user_id
+        description: "Identifier for the user associated with the transaction."
+      - name: transaction_timestamp
+        description: "Timestamp of the transaction."
+      - name: revenue
+        description: "Revenue generated from the transaction."
+      - name: cost
+        description: "Cost associated with the transaction."
+      - name: transaction_year
+        description: "Year extracted from the transaction timestamp."
+      - name: transaction_month
+        description: "Month extracted from the transaction timestamp."
