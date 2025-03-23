@@ -35,10 +35,8 @@ SELECT
     s.total_cost,
     COALESCE(m.total_marketing_cost, 0) AS total_marketing_cost,
     COALESCE(m.total_marketing_events, 0) AS total_marketing_events,
-    CASE
-        WHEN s.total_cost > 0 THEN (s.total_revenue / s.total_cost)
-        ELSE 0
-    END AS revenue_to_cost_ratio
+    -- Use the macro to calculate the revenue-to-cost ratio
+    {{ calculate_revenue_to_cost_ratio('s.total_revenue', 's.total_cost') }} AS revenue_to_cost_ratio
 FROM
     sales_agg s
 LEFT JOIN
