@@ -1,0 +1,12 @@
+Summary of Deliverables
+1) Refactored SQL Code:
+Split into modular dbt models (stg_marketing_events, stg_sales_transactions, stg_product_catalog, and agg_marketing_sales_performance).
+
+2) Data Quality Tests:
+Added to schema.yml to ensure data integrity.
+
+3) dbt Macro:
+Created calculate_revenue_to_cost_ratio for reusability.
+
+4) Documentation:
+Added descriptions for each model and key columns in schema.yml

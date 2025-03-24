@@ -1,0 +1,5 @@
+What I have done:
+1) Created a git repository.
+2) Created a database name 'dev', schema 'dev' & 3 tables in redshift.
+3) Created a project in dbt cloud and linked with GitHub. 
+4) Github link: https://github.com/samiul24/dbt-cloud/tree/samiul24-patch-1
