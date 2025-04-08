@@ -5,4 +5,4 @@ SELECT
     product_name,
     category
 FROM
-    {{ source('dev', 'product_catalog') }}
+    {{ source('dev_env', 'product_catalog') }}

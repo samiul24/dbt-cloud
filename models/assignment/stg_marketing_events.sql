@@ -11,4 +11,4 @@ SELECT
     EXTRACT(YEAR FROM event_timestamp) AS event_year,
     EXTRACT(MONTH FROM event_timestamp) AS event_month
 FROM
-    {{ source('dev', 'marketing_events') }}
+    {{ source('dev_env', 'marketing_events') }}

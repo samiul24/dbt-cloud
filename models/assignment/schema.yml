@@ -1,6 +1,7 @@
 # Define sources
 sources:
-  - name: dev  # Name of the source (logical grouping of tables)
+  - name: dev_env  # Name of the source (logical grouping of tables)
+    database: dev
     schema: dev  # Schema where the tables are located in Redshift
     description: "Raw data tables from the source system."
     tables:

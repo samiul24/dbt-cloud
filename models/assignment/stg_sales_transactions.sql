@@ -10,4 +10,4 @@ SELECT
     EXTRACT(YEAR FROM transaction_timestamp) AS transaction_year,
     EXTRACT(MONTH FROM transaction_timestamp) AS transaction_month
 FROM
-    {{ source('dev', 'sales_transactions') }}
+    {{ source('dev_env', 'sales_transactions') }}
